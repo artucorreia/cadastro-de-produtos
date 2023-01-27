@@ -1,11 +1,11 @@
 import Product from './class-product.js';
 import productsList from './array-products.js';
-import tableAction from './table-actions.js'
+import tableActions from './table-actions.js';
 
 const tbody = window.document.getElementById('tableBody');
 tbody.addEventListener('click', event => {
     if (event.target.nodeName === 'I') {
-        tableAction(event.target.dataset.config);
+        tableActions(event);
     }
 }); 
 
@@ -38,10 +38,9 @@ buttonAdd.addEventListener('click', () => {
             price.value
         );
         productsList.push(newProduct);
-        newProduct.addInTable();
+        Product.updateTable(productsList);
         clearInputs(name, price);
     }
-    console.log(productsList);
 });
 
 const buttonCancel = window.document.getElementById('cancel');

@@ -1,12 +1,7 @@
-let position = 0;
-const counterTr = () => ++position;
-
-const createTableElements = (name, price) => {
-    // criando elementos
-    position = counterTr();
+const createTableElements = (name, price, indice) => {
     const tr = window.document.createElement('tr');
     const tdId = window.document.createElement('td');
-    tdId.innerHTML = position;
+    tdId.innerHTML = ++indice;
     tdId.className = 'itemId';
     const tdName = window.document.createElement('td');
     tdName.innerHTML = name;

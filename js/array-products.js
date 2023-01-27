@@ -1,2 +1,2 @@
-let products = [];
-export default products;
+let productsList = [];
+export default productsList;
