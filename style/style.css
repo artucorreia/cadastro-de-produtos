@@ -63,6 +63,7 @@ main input.dado {
 main input.button {
     background-color: var(--corPadrao);
     color: white;
+    font-weight: bold;
     width: 120px;
     padding: 12px;
     border-radius: 5px;

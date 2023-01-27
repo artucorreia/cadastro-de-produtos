@@ -10,7 +10,7 @@
 </head>
 <body>
     <header>
-        <h1>Minha Loja 1.0</h1>
+        <h1>Minha Loja</h1>
     </header>
     <main>
         <section id="title">
@@ -19,15 +19,15 @@
         </section>
         <section id="card">
             <article>
-                <label for="teste">Produto</label>
-                <input type="text" name="" id="teste" placeholder="Nome do produto" class="dado">
+                <label for="inputName">Produto</label>
+                <input type="text" name="" id="inputName" placeholder="Nome do produto" class="dado">
             </article>
             <article>
-                <label for="valor">Valor(R$)</label>
-                <input type="number" name="" id="valor" placeholder="Valor do produto" class="dado">
+                <label for="inputPrice">Valor(R$)</label>
+                <input type="number" name="" id="inputPrice" placeholder="Valor do produto" class="dado">
             </article>
-            <input type="button" value="Adicionar" class="button">
-            <input type="button" value="Cancelar" class="button">
+            <input type="button" value="Adicionar" class="button" id="add">
+            <input type="button" value="Cancelar" class="button" id="cancel">
         </section>
         <section id="secTable">
             <table>
@@ -40,37 +40,12 @@
                         <th scope="col">Ações</th>
                     </tr>
                 </thead>
-                <tbody>
-                    <tr>
-                        <td class="itemId" >1</td>
-                        <td>Chá Verde</td>
-                        <td class="number">R$ 6</td>
-                        <td class="action">
-                            <i class="fa-solid fa-pencil"></i>
-                            <i class="fa-solid fa-trash-can"></i>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="itemId">2</td>
-                        <td>Amendoim</td>
-                        <td class="number">R$ 7</td>
-                        <td class="action">
-                            <i class="fa-solid fa-pencil"></i>
-                            <i class="fa-solid fa-trash-can"></i>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="itemId">3</td>
-                        <td>Aveia</td>
-                        <td class="number">R$ 2</td>
-                        <td class="action">
-                            <i class="fa-solid fa-pencil"></i>
-                            <i class="fa-solid fa-trash-can"></i>
-                        </td>
-                    </tr>
+                <tbody id="tableBody">
+                    
                 </tbody>
             </table>
         </section>
     </main>
+    <script type="module" src="js/script.js"></script>
 </body>
 </html>
