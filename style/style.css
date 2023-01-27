@@ -1,0 +1,126 @@
+@charset "UTF-8";
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;500;700&display=swap');
+
+:root {
+    --fontPadrao: 'Roboto', Arial, Helvetica, sans-serif;
+    --corPadrao: #2222d4;
+    --corEfeito: #2222d4c5;
+    --corBorda: #bebebe;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    position: relative;
+    background-color: var(--corPadrao);
+    color: white;
+    height: 60px;
+    font-family: var(--fontPadrao);
+}
+
+header > h1 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+main {
+    font-family: var(--fontPadrao);
+    padding: 30px 50px;
+}
+
+main > section#card {
+    background-color: rgb(247, 247, 247);
+    width: 400px;
+    margin-top: 10px;
+    padding: 15px;
+    border: 1px solid var(--corBorda);
+    border-radius: 3px;
+}
+
+main label {
+    font-size: 1.2em;
+}
+
+main input.dado {
+    display: grid;
+    background-color: white;
+    font-size: 1em;
+    text-indent: 8px;
+    width: 360px;
+    margin-bottom: 30px;
+    padding: 15px 0px 15px 0px;
+    outline-style: none;
+    border: 1px solid var(--corBorda);
+    border-radius: 5px;
+}
+
+main input.button {
+    background-color: var(--corPadrao);
+    color: white;
+    width: 120px;
+    padding: 12px;
+    border-radius: 5px;
+    border-style: none;
+    transition-duration: 0.3s;
+}
+
+main input.button:hover {
+    background-color: var(--corEfeito);
+}
+
+main table {
+    margin: 20px auto;
+    width: 500px;
+    border-collapse: collapse;
+}
+
+table > caption {
+    background-color: rgb(199, 199, 199);
+    text-transform: capitalize;
+    font-weight: bold;
+    padding: 10px;
+    border:1px solid #979797;
+}
+
+table > thead {
+    background-color: rgb(199, 199, 199);
+    text-transform: capitalize;
+}
+
+table > thead th {
+    padding: 4px;
+    border:1px solid #979797;
+}
+
+table td {
+    padding: 3px;
+    border:1px solid #979797;
+}
+
+th#colId {
+    width: 40px;
+    text-transform: uppercase;
+}
+
+th#colValue {
+    width: 100px;
+}
+
+td.itemId {
+    text-align: center;
+}
+
+td.action {
+    text-align: center;
+    width: 70px;
+}
+
+table .number {
+    text-align: right;
+}

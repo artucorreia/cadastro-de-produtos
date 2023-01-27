@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Produtos</title>
+    <link rel="stylesheet" href="style/style.css">
+</head>
+<body>
+    <header>
+        <h1>Minha Loja 1.0</h1>
+    </header>
+    <main>
+        <section id="title">
+            <h2>Produtos</h2>
+            <span>Lista de produtos da minha loja.</span>
+        </section>
+        <section id="card">
+            <article>
+                <label for="teste">Produto</label>
+                <input type="text" name="" id="teste" placeholder="Nome do produto" class="dado">
+            </article>
+            <article>
+                <label for="valor">Valor(R$)</label>
+                <input type="number" name="" id="valor" placeholder="Valor do produto" class="dado">
+            </article>
+            <input type="button" value="Adicionar" class="button">
+            <input type="button" value="Cancelar" class="button">
+        </section>
+        <section id="secTable">
+            <table>
+                <caption>lista de produtos</caption>
+                <thead>
+                    <tr>
+                        <th scope="col" id="colId">id</th>
+                        <th scope="col">nome</th>
+                        <th scope="col" id="colValue">valor</th>
+                        <th scope="col">Ações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="itemId" >1</td>
+                        <td>Chá Verde</td>
+                        <td class="number">R$ 6</td>
+                        <td class="action">ed, de</td>
+                    </tr>
+                    <tr>
+                        <td class="itemId">2</td>
+                        <td>Amendoim</td>
+                        <td class="number">R$ 7</td>
+                        <td class="action">ed, de</td>
+                    </tr>
+                    <tr>
+                        <td class="itemId">3</td>
+                        <td>Aveia</td>
+                        <td class="number">R$ 2</td>
+                        <td class="action">ed, de</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </main>
+</body>
+</html>
