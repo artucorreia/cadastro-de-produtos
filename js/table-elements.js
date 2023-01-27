@@ -17,11 +17,14 @@ const createTableElements = (name, price) => {
     tdActions.className = 'action';
     const iconEdit = window.document.createElement('i');
     iconEdit.className = 'fa-solid fa-pencil';
+    iconEdit.setAttribute('data-config', 'edit');
     const iconDelete = window.document.createElement('i');
     iconDelete.className = 'fa-solid fa-trash-can';
+    iconDelete.setAttribute('data-config', 'delete');
     // organizando
     tr.appendChild(tdId);
     tr.appendChild(tdName);
+    // tdPrice.appendChild(spanBRL);
     tr.appendChild(tdPrice);
     tdActions.appendChild(iconEdit);
     tdActions.appendChild(iconDelete);

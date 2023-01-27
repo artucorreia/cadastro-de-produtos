@@ -1,5 +1,13 @@
 import Product from './class-product.js';
 import productsList from './array-products.js';
+import tableAction from './table-actions.js'
+
+const tbody = window.document.getElementById('tableBody');
+tbody.addEventListener('click', event => {
+    if (event.target.nodeName === 'I') {
+        tableAction(event.target.dataset.config);
+    }
+}); 
 
 // caso algum valor estja incorreto
 // retorna true
@@ -23,9 +31,12 @@ buttonAdd.addEventListener('click', () => {
     const price = window.document.getElementById('inputPrice');
     let valueIncorrect = checkIncorrectValues(name, price);
     if (valueIncorrect) {
-        alert('tem coisa errada ai meu nobre');
+        alert('Verifique os campos e tente novamente');
     } else {
-        let newProduct = new Product(name.value.trim(), price.value);
+        let newProduct = new Product(
+            name.value.trim(), 
+            price.value
+        );
         productsList.push(newProduct);
         newProduct.addInTable();
         clearInputs(name, price);

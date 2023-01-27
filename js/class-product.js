@@ -15,7 +15,6 @@ class Product {
         const tbody = window.document.getElementById('tableBody');
         tbody.appendChild(tableElements);
     }
-
 };
 
 export default Product;
