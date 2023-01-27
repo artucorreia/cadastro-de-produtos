@@ -1,37 +1,33 @@
-import productsList from './array-products.js';
+// import productsList from './array-products.js';
 import createTableElements from './table-elements.js';
 
 class Product {
-    constructor(name, price) {
+    constructor(id, name, price) {
+        this.id = id;
         this.name = name;
         this.price = price;
-        this.active = true;
     }
 
-    static getProduct = (name, array) => {
-        let productsFilter = array.filter((element) => {
-            if (element.name === name) {
+    static getProductById = (id, array) => {
+        let product = array.filter((element) => {
+            if (element.id == id) {
                 return element;
             }
         });
-        return productsFilter[0];
+        return product[0];
     }
 
     static updateTable = array => {
         const tbody = window.document.getElementById('tableBody');
         tbody.innerHTML = '';
-        array.map((element, indice) => {
+        array.map((element) => {
             let tableElements = createTableElements(
                 element.name, 
                 element.price, 
-                indice
+                element.id
             );
             tbody.appendChild(tableElements);
         });
-    }
-
-    changeStatus = () => {
-        return this.active = false;
     }
 };
 

@@ -1,7 +1,7 @@
-const createTableElements = (name, price, indice) => {
+const createTableElements = (name, price, id) => {
     const tr = window.document.createElement('tr');
     const tdId = window.document.createElement('td');
-    tdId.innerHTML = ++indice;
+    tdId.innerHTML = id;
     tdId.className = 'itemId';
     const tdName = window.document.createElement('td');
     tdName.innerHTML = name;
@@ -19,7 +19,6 @@ const createTableElements = (name, price, indice) => {
     // organizando
     tr.appendChild(tdId);
     tr.appendChild(tdName);
-    // tdPrice.appendChild(spanBRL);
     tr.appendChild(tdPrice);
     tdActions.appendChild(iconEdit);
     tdActions.appendChild(iconDelete);

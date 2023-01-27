@@ -1,24 +1,19 @@
 import Product from "./class-product.js";
 import productsList from './array-products.js';
 
-const editProduct = () => {
+const editProduct = id => {
     console.log('edit ok');
+    console.log(Product.getProductById(id, productsList));
 };
 
-const deleteProduct = elementHTML => {
-    const product = Product.getProduct(
-        elementHTML.parentElement.parentElement.children[1].innerText, 
-        productsList
-    );
-    product.changeStatus();
-    productsList = product.removeFromArray(productsList);
+const deleteProduct = id => {
+    console.log('delete ok');
+    console.log(Product.getProductById(id, productsList));
 };
 
 const options = {
-    edit:   (elementHTML) => editProduct(elementHTML),
-    delete: (elementHTML) => deleteProduct(elementHTML),
+    edit:   (idFromElement) => editProduct(idFromElement),
+    delete: (idFromElement) => deleteProduct(idFromElement),
 };
 
-const tableActions = event => options[event.target.dataset.config](event.target);
-
-export default tableActions;
+export default options;
