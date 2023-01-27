@@ -11,9 +11,9 @@ const deleteProduct = id => {
     console.log(Product.getProductById(id, productsList));
 };
 
-const options = {
-    edit:   (idFromElement) => editProduct(idFromElement),
-    delete: (idFromElement) => deleteProduct(idFromElement),
+const actions = {
+    edit:   (productId) => editProduct(productId),
+    delete: (productId) => deleteProduct(productId),
 };
 
-export default options;
+export default actions;

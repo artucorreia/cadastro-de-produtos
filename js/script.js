@@ -1,16 +1,17 @@
 import Product from './class-product.js';
 import productsList from './array-products.js';
-import options from './table-actions.js';
+import actions from './table-actions.js';
+
+const element = {
+    node:    (event) => event.target.nodeName,
+    dataset: (event) => event.target.dataset.config,
+    id:      (event) => event.target.parentElement.parentElement.firstElementChild.innerText
+};
 
 const tbody = window.document.getElementById('tableBody');
 tbody.addEventListener('click', event => {
-    let elementNode = event.target.nodeName;
-    if (elementNode === 'I') {
-        let datasetConfig = 
-            event.target.dataset.config;
-        let idFromElement = 
-            event.target.parentElement.parentElement.firstElementChild.innerText;
-        options[datasetConfig](idFromElement);
+    if (element['node'](event) === 'I') {
+        actions[element['dataset'](event)](element['id'](event));
     }
 }); 
 
