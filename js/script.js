@@ -1,5 +1,5 @@
 import Product from './class-product.js';
-import productsList from './array-products.js';
+import products from './array-products.js';
 import actions from './table-actions.js';
 
 const element = {
@@ -45,8 +45,8 @@ buttonAdd.addEventListener('click', () => {
             name.value.trim(), 
             price.value
         );
-        productsList.push(newProduct);
-        Product.updateTable(productsList);
+        products['list'].push(newProduct);
+        Product.updateTable();
         clearInputs(name, price);
     }
 });
@@ -56,5 +56,5 @@ buttonCancel.addEventListener('click', () => {
     const name =  window.document.getElementById('inputName');
     const price = window.document.getElementById('inputPrice');
     clearInputs(name, price);
-    console.log(productsList);
+    console.log(products['list']);
 });

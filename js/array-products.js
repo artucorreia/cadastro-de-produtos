@@ -1,2 +1,4 @@
 let productsList = [];
-export default productsList;
+export default {
+    list: productsList
+};

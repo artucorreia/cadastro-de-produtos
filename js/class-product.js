@@ -1,4 +1,4 @@
-import productsList from './array-products.js';
+import products from './array-products.js';
 import createTableElements from './table-elements.js';
 
 class Product {
@@ -17,27 +17,25 @@ class Product {
         return product[0];
     }
 
-    static updateTable = array => {
+    static updateTable = () => {
         const tbody = window.document.getElementById('tableBody');
         tbody.innerHTML = '';
-        array.map((element) => {
+        products['list'].map((element) => {
             let tableElements = createTableElements(
+                element.id,
                 element.name, 
-                element.price, 
-                element.id
+                element.price 
             );
             tbody.appendChild(tableElements);
         });
     }
 
     deleteProduct = () => {
-        console.log(typeof productsList)
-        console.log(Array.isArray(productsList));
-        // productsList = productsList.filter((element) => {
-        //     if (element.id !== this.id) {
-        //         return element;
-        //     }
-        // });
+        products['list'] = products['list'].filter((element) => {
+            if (element.id !== this.id) {
+                return element;
+            }
+        });
     }
 };
 

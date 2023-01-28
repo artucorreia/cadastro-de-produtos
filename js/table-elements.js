@@ -1,4 +1,4 @@
-const createTableElements = (name, price, id) => {
+const createTableElements = (id, name, price) => {
     const tr = window.document.createElement('tr');
     const tdId = window.document.createElement('td');
     tdId.innerHTML = id;

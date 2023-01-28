@@ -1,17 +1,15 @@
 import Product from "./class-product.js";
-import productsList from './array-products.js';
+import products from './array-products.js';
 
 const editProduct = id => {
     console.log('edit ok');
-    console.log(Product.getProductById(id, productsList));
+    console.log(Product.getProductById(id, products['list']));
 };
 
 const deleteProduct = id => {
-    // console.log('delete ok');
-    let productSelected = Product.getProductById(id, productsList);
-    console.log(productsList);
-    productSelected.deleteProduct(productsList);
-    console.log(productsList);
+    let productSelected = Product.getProductById(id, products['list']);
+    productSelected.deleteProduct();
+    Product.updateTable();
 };
 
 const actions = {
