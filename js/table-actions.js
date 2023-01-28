@@ -7,8 +7,11 @@ const editProduct = id => {
 };
 
 const deleteProduct = id => {
-    console.log('delete ok');
-    console.log(Product.getProductById(id, productsList));
+    // console.log('delete ok');
+    let productSelected = Product.getProductById(id, productsList);
+    console.log(productsList);
+    productSelected.deleteProduct(productsList);
+    console.log(productsList);
 };
 
 const actions = {

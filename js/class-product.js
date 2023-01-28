@@ -1,4 +1,4 @@
-// import productsList from './array-products.js';
+import productsList from './array-products.js';
 import createTableElements from './table-elements.js';
 
 class Product {
@@ -29,6 +29,16 @@ class Product {
             tbody.appendChild(tableElements);
         });
     }
+
+    deleteProduct = () => {
+        console.log(typeof productsList)
+        console.log(Array.isArray(productsList));
+        // productsList = productsList.filter((element) => {
+        //     if (element.id !== this.id) {
+        //         return element;
+        //     }
+        // });
+    }
 };
 
-export default Product;
+export default Product;  
