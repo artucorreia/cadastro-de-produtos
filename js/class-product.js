@@ -1,4 +1,3 @@
-import products from './array-products.js';
 import createTableElements from './table-elements.js';
 
 class Product {
@@ -6,6 +5,10 @@ class Product {
         this.id = id;
         this.name = name;
         this.price = price;
+    }
+
+    static addNewProduct = () => {
+        
     }
 
     static getProductById = (id, array) => {
@@ -17,10 +20,10 @@ class Product {
         return product[0];
     }
 
-    static updateTable = () => {
+    static updateTable = array => {
         const tbody = window.document.getElementById('tableBody');
         tbody.innerHTML = '';
-        products['list'].map((element) => {
+        array.map((element) => {
             let tableElements = createTableElements(
                 element.id,
                 element.name, 
@@ -30,12 +33,30 @@ class Product {
         });
     }
 
-    deleteProduct = () => {
-        products['list'] = products['list'].filter((element) => {
+    deleteProduct = array => {
+        array = array.filter((element) => {
             if (element.id !== this.id) {
                 return element;
             }
         });
+        return array;
+    }
+
+    editProduct = () => {
+        const name = window.document.getElementById('inputName');
+        const price = window.document.getElementById('inputPrice');
+        const buttonAdd = window.document.getElementById('add');
+        this.manipulationInputs({
+            name,
+            price,
+            buttonAdd
+        });
+    }
+
+    manipulationInputs = ({name, price, buttonAdd}) => {
+        name.value = this.name;
+        price.value = this.price;
+        buttonAdd.value = 'Salvar';
     }
 };
 

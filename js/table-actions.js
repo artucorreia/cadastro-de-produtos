@@ -1,20 +1,40 @@
 import Product from "./class-product.js";
 import products from './array-products.js';
 
-const editProduct = id => {
-    console.log('edit ok');
-    console.log(Product.getProductById(id, products['list']));
+const validationDelete = () => {
+    return window.confirm('Tem certeza que deseja deletar esse item?');
 };
 
-const deleteProduct = id => {
-    let productSelected = Product.getProductById(id, products['list']);
-    productSelected.deleteProduct();
-    Product.updateTable();
+const getElementHTML = {
+    tr: target => target.parentElement.parentElement.lastElementChild,
+    id: target => target.parentElement.parentElement.firstElementChild.innerText
+};
+
+const editProduct = target => {
+    let productSelected =
+        Product.getProductById(
+            getElementHTML['id'](target), 
+            products['list']
+        );
+    productSelected.editProduct();
+};
+
+const deleteProduct = target => {
+    if(validationDelete()) {
+        let productSelected = 
+            Product.getProductById(
+                getElementHTML['id'](target), 
+                products['list']
+            );
+        products['list'] = 
+            productSelected.deleteProduct(products['list']);
+        Product.updateTable(products['list']);
+    }
 };
 
 const actions = {
-    edit:   (productId) => editProduct(productId),
-    delete: (productId) => deleteProduct(productId),
+    edit:   (target) => editProduct(target),
+    delete: (target) => deleteProduct(target),
 };
 
 export default actions;
