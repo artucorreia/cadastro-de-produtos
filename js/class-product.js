@@ -1,4 +1,5 @@
 import createTableElements from './table-elements.js';
+import functions from './functions.js';
 
 class Product {
     constructor(id, name, price) {
@@ -7,8 +8,22 @@ class Product {
         this.price = price;
     }
 
-    static addNewProduct = () => {
-        
+    static addNewProduct = array => {
+        const name =  window.document.getElementById('inputName');
+        const price = window.document.getElementById('inputPrice');
+        let inputInvalid = functions['validateInputs'](name, price);
+        if (inputInvalid) {
+            alert('Verifique os campos e tente novamente');
+        } else {
+            let newProduct = new Product(
+                functions['generateIds'](),
+                name.value.trim(), 
+                price.value
+            );
+            array.push(newProduct);
+            Product.updateTable(array);
+            functions['clearInputs'](name, price);
+        }
     }
 
     static getProductById = (id, array) => {
