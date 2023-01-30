@@ -1,7 +1,10 @@
 import createTableElements from './table-elements.js';
 import functions from './functions.js';
+import products from './array-products.js'
 
 class Product {
+    static saveIdForEdit = 0;
+    
     constructor(id, name, price) {
         this.id = id;
         this.name = name;
@@ -13,16 +16,27 @@ class Product {
         const price = window.document.getElementById('inputPrice');
         let inputInvalid = functions['validateInputs'](name, price);
         if (inputInvalid) {
-            alert('Verifique os campos e tente novamente');
+            window.alert('Verifique os campos e tente novamente');
         } else {
-            let newProduct = new Product(
-                functions['generateIds'](),
-                name.value.trim(), 
-                price.value
-            );
-            array.push(newProduct);
-            Product.updateTable(array);
+            if (Product.saveIdForEdit == 0) {
+                let newProduct = new Product(
+                    functions['generateIds'](),
+                    name.value.trim(), 
+                    price.value
+                );
+                array.push(newProduct);
+            } else {
+                let productEdited =
+                Product.getProductById(Product.saveIdForEdit, products['list']);
+                console.log(productEdited);
+                productEdited.changeDados(
+                    name.value.trim(),
+                    price.value
+                );
+                functions['resetProductId']();
+            }
             functions['clearInputs'](name, price);
+            Product.updateTable(array);
         }
     }
 
@@ -66,12 +80,18 @@ class Product {
             price,
             buttonAdd
         });
+        functions['saveProductId'](this.id);
     }
 
     manipulationInputs = ({name, price, buttonAdd}) => {
         name.value = this.name;
         price.value = this.price;
         buttonAdd.value = 'Salvar';
+    }
+
+    changeDados = (name, price) => {
+        this.name = name;
+        this.price = price;
     }
 };
 
