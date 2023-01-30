@@ -12,7 +12,7 @@ tbody.addEventListener('click', event => {
 });
 
 const buttonAdd = window.document.getElementById('add');
-buttonAdd.addEventListener('click', () => Product.addNewProduct(
+buttonAdd.addEventListener('click', () => Product.main(
     products['list']
 ));
 

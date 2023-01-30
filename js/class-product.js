@@ -12,7 +12,7 @@ class Product {
         this.price = Number(price)
     }
 
-    static addNewProduct = array => {
+    static main = array => {
         const name =  window.document.getElementById('inputName');
         const price = window.document.getElementById('inputPrice');
         let inputInvalid = functions['validateInputs'](name, price);
@@ -20,37 +20,45 @@ class Product {
             window.alert('Verifique os campos e tente novamente');
         } else {
             if (Product.saveIdForEdit == 0) {
-                let newProduct = new Product(
-                    functions['generateIds'](),
-                    name.value.trim(), 
-                    price.value
-                );
-                array.push(newProduct);
+                Product.addNewProduct(name, price, array);
             } else {
-                let productEdited =
-                    Product.getProductById(
-                        Product.saveIdForEdit, 
-                        products['list']
-                    );
-                productEdited.changeDados(
-                    name.value.trim(),
-                    price.value
-                );
-                functions['resetProductId']();
-                functions['changeInputValue'](
-                    {
-                        1: window.document.getElementById('add')
-                    }, 
-                    {
-                        1: 'Adicionar'
-                    },
-                    1
-                );
+                Product.editionConfirm(name, price);
             }
             functions['clearInputs'](name, price);
             Product.updateTable(array);
             localstorage['update'](array);
         }
+    }
+
+    static addNewProduct = (name, price, array) => {
+        let newProduct = new Product(
+            functions['generateIds'](),
+            name.value.trim(), 
+            price.value
+        );
+        array.push(newProduct);
+    }
+
+    static editionConfirm = (name, price) => {
+        let productEdited =
+            Product.getProductById(
+                Product.saveIdForEdit, 
+                products['list']
+            );
+        productEdited.changeProductData(
+            name.value.trim(),
+            price.value
+        );
+        functions['resetProductId']();
+        functions['changeInputValue'](
+            {
+                1: window.document.getElementById('add')
+            }, 
+            {
+                1: 'Adicionar'
+            },
+            1
+        );
     }
 
     static getProductById = (id, array) => {
@@ -104,7 +112,7 @@ class Product {
         functions['saveProductId'](this.id);
     }
 
-    changeDados = (name, price) => {
+    changeProductData = (name, price) => {
         this.name = name;
         this.price = price;
     }
