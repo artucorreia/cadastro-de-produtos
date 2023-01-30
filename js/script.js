@@ -2,6 +2,7 @@ import Product from './class-product.js';
 import products from './array-products.js';
 import actions from './table-actions.js';
 import functions from './functions.js';
+import localstorage from './localstorage.js';
 
 const tbody = window.document.getElementById('tableBody');
 tbody.addEventListener('click', event => {
@@ -32,3 +33,8 @@ buttonCancel.addEventListener('click', () => {
     );
     console.log(products['list']);
 });
+
+;(() => {
+    localstorage['set']();
+    localstorage['display'](products['list']);
+})();

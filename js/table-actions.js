@@ -1,5 +1,6 @@
 import Product from "./class-product.js";
 import products from './array-products.js';
+import localstorage from "./localstorage.js";
 
 const validationDelete = () => {
     return window.confirm('Tem certeza que deseja deletar esse item?');
@@ -29,6 +30,9 @@ const deleteProduct = target => {
         products['list'] = 
             productSelected.deleteProduct(products['list']);
         Product.updateTable(products['list']);
+        localstorage['update'](
+            products['list']
+        );
     }
 };
 

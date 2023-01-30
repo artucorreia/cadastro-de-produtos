@@ -1,6 +1,7 @@
 import createTableElements from './table-elements.js';
 import functions from './functions.js';
-import products from './array-products.js'
+import products from './array-products.js';
+import localstorage from './localstorage.js';
 
 class Product {
     static saveIdForEdit = 0;
@@ -31,7 +32,6 @@ class Product {
                         Product.saveIdForEdit, 
                         products['list']
                     );
-                console.log(productEdited);
                 productEdited.changeDados(
                     name.value.trim(),
                     price.value
@@ -49,6 +49,7 @@ class Product {
             }
             functions['clearInputs'](name, price);
             Product.updateTable(array);
+            localstorage['update'](array);
         }
     }
 

@@ -1,19 +1,14 @@
 import Product from "./class-product.js";
 
-const changeInputValue = ({...inputs}, {...values}, quantInput)  => {
-    for(let i = 1; i <= quantInput; i++) {
+const changeInputValue = ({...inputs}, {...values}, inputsAmount)  => {
+    for(let i = 1; i <= inputsAmount; i++) {
         inputs[i].value = values[i];
     }
 };
 
-const saveProductId = id => {
-    Product.saveIdForEdit = id;
-    console.log(Product.saveIdForEdit);
-};
+const saveProductId = id => Product.saveIdForEdit = id;
 
-const resetProductId = () => {
-    Product.saveIdForEdit = 0;
-};
+const resetProductId = () => Product.saveIdForEdit = 0;
 
 const validateInputs = (...inputs) => {
     for (let input of inputs) {
