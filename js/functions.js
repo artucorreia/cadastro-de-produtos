@@ -1,5 +1,11 @@
 import Product from "./class-product.js";
 
+const changeInputValue = ({...inputs}, {...values}, quantInput)  => {
+    for(let i = 1; i <= quantInput; i++) {
+        inputs[i].value = values[i];
+    }
+};
+
 const saveProductId = id => {
     Product.saveIdForEdit = id;
     console.log(Product.saveIdForEdit);
@@ -27,6 +33,7 @@ let id = 0;
 const generateIds = () => ++id;
 
 export default {
+    changeInputValue: changeInputValue,
     saveProductId:  saveProductId,
     resetProductId: resetProductId,
     validateInputs: validateInputs,

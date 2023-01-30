@@ -5,7 +5,7 @@ import functions from './functions.js';
 
 const tbody = window.document.getElementById('tableBody');
 tbody.addEventListener('click', event => {
-    if (event.target.nodeName === 'I') {
+    if (event.target.nodeName === 'I' && Product.saveIdForEdit == 0) {
         actions[event.target.dataset.config](event.target);
     }
 });
@@ -20,5 +20,15 @@ buttonCancel.addEventListener('click', () => {
     const name =  window.document.getElementById('inputName');
     const price = window.document.getElementById('inputPrice');
     functions['clearInputs'](name, price);
+    functions['resetProductId']();
+    functions['changeInputValue'](
+        {
+            1: window.document.getElementById('add')
+        }, 
+        {
+            1: 'Adicionar'
+        },
+        1
+    );
     console.log(products['list']);
 });

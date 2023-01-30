@@ -8,7 +8,7 @@ class Product {
     constructor(id, name, price) {
         this.id = id;
         this.name = name;
-        this.price = price;
+        this.price = Number(price)
     }
 
     static addNewProduct = array => {
@@ -27,13 +27,25 @@ class Product {
                 array.push(newProduct);
             } else {
                 let productEdited =
-                Product.getProductById(Product.saveIdForEdit, products['list']);
+                    Product.getProductById(
+                        Product.saveIdForEdit, 
+                        products['list']
+                    );
                 console.log(productEdited);
                 productEdited.changeDados(
                     name.value.trim(),
                     price.value
                 );
                 functions['resetProductId']();
+                functions['changeInputValue'](
+                    {
+                        1: window.document.getElementById('add')
+                    }, 
+                    {
+                        1: 'Adicionar'
+                    },
+                    1
+                );
             }
             functions['clearInputs'](name, price);
             Product.updateTable(array);
@@ -75,18 +87,20 @@ class Product {
         const name = window.document.getElementById('inputName');
         const price = window.document.getElementById('inputPrice');
         const buttonAdd = window.document.getElementById('add');
-        this.manipulationInputs({
-            name,
-            price,
-            buttonAdd
-        });
+        functions['changeInputValue'](
+            {
+                1: name, 
+                2: price,
+                3: buttonAdd
+            }, 
+            {
+                1: this.name, 
+                2: this.price,
+                3: 'Salvar'
+            },
+            3
+        );
         functions['saveProductId'](this.id);
-    }
-
-    manipulationInputs = ({name, price, buttonAdd}) => {
-        name.value = this.name;
-        price.value = this.price;
-        buttonAdd.value = 'Salvar';
     }
 
     changeDados = (name, price) => {

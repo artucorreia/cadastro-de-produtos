@@ -1,3 +1,7 @@
+const conversionToBRL = value => {
+    return Number(value).toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'});
+}
+
 const createTableElements = (id, name, price) => {
     const tr = window.document.createElement('tr');
     const tdId = window.document.createElement('td');
@@ -5,8 +9,9 @@ const createTableElements = (id, name, price) => {
     tdId.className = 'itemId';
     const tdName = window.document.createElement('td');
     tdName.innerHTML = name;
-    const tdPrice = window.document.createElement('td');
-    tdPrice.innerHTML = price;
+    const tdPrice = window.document.createElement('td');   
+    let priceInBRL = conversionToBRL(price);
+    tdPrice.innerHTML = priceInBRL;
     tdPrice.className = 'number';
     const tdActions = window.document.createElement('td');
     tdActions.className = 'action';
