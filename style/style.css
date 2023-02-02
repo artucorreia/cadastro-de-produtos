@@ -31,7 +31,7 @@ header > h1 {
 
 main {
     font-family: var(--fontPadrao);
-    padding: 30px 50px;
+    padding: 30px 40px;
 }
 
 main > section#card {
@@ -73,6 +73,10 @@ main input.button {
 
 main input.button:hover {
     background-color: var(--corEfeito);
+}
+
+main section#secTable {
+    overflow-x: auto;
 }
 
 main table {
