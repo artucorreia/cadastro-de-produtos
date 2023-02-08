@@ -31,7 +31,6 @@ buttonCancel.addEventListener('click', () => {
         },
         1
     );
-    console.log(products['list']);
 });
 
 ;(() => {
